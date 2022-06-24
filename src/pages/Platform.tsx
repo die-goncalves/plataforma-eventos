@@ -1,3 +1,4 @@
+import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import { Sidebar } from '../components/Sidebar'
 
@@ -6,7 +7,11 @@ export function Platform() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex flex-1">
-        <div className="flex-1"></div>
+        <div className="flex flex-1 flex-col">
+          <div className="flex-1"></div>
+
+          <Footer />
+        </div>
 
         <Sidebar />
       </main>
