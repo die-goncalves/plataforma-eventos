@@ -12,7 +12,13 @@ export function Platform() {
   const { slug } = useParams<Params>()
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div
+      className="flex flex-col h-screen scrollbar"
+      style={{
+        overflow: 'auto',
+        scrollbarGutter: 'stable'
+      }}
+    >
       <Header />
       <main className="flex flex-1">
         <div className="flex flex-1 flex-col">

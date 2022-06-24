@@ -7,3 +7,16 @@
 body {
   @apply bg-gray-900 text-gray-100 font-roboto;
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #323238;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    background: #09090A;
+  }
+}
