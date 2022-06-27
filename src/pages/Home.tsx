@@ -4,16 +4,8 @@ import BlurBackground from '../assets/blur-background.png'
 import CodeImg from '../assets/code-img.png'
 import ReactIcon from '../assets/react-icon.svg'
 import { Footer } from '../components/Footer'
-import { gql, useMutation } from '@apollo/client'
 import { useNavigate } from 'react-router-dom'
-
-const CREATE_SUBSCRIBER_MUTATION = gql`
-  mutation CreateSubscriber($name: String!, $email: String!) {
-    createSubscriber(data: { name: $name, email: $email }) {
-      id
-    }
-  }
-`
+import { useCreateSubscriberMutation } from '../graphql/generated'
 
 export function Home() {
   const navigate = useNavigate()
@@ -21,9 +13,7 @@ export function Home() {
     name: '',
     email: ''
   })
-  const [createSubscriber, { data, loading }] = useMutation(
-    CREATE_SUBSCRIBER_MUTATION
-  )
+  const [createSubscriber, { data, loading }] = useCreateSubscriberMutation()
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()

@@ -1,4 +1,3 @@
-import { gql, useQuery } from '@apollo/client'
 import { DefaultUi, Player, Youtube } from '@vime/react'
 import {
   CaretRight,
@@ -9,46 +8,18 @@ import {
 } from 'phosphor-react'
 
 import '@vime/core/themes/default.css'
-
-const GET_LESSON_BY_SLUG_QUERY = gql`
-  query GetLessonByString($slug: String) {
-    lesson(where: { slug: $slug }) {
-      title
-      description
-      videoId
-      teacher {
-        avatarURL
-        name
-        bio
-      }
-    }
-  }
-`
-
-type GetLessonBySlugQueryResponse = {
-  lesson: {
-    title: string
-    description: string
-    videoId: string
-    teacher: {
-      avatarURL: string
-      name: string
-      bio: string
-    }
-  }
-}
+import { useGetLessonBySlugQuery } from '../graphql/generated'
 
 type VideoProps = {
   lessonSlug: string
 }
 
 export function Video(props: VideoProps) {
-  const { data } = useQuery<GetLessonBySlugQueryResponse>(
-    GET_LESSON_BY_SLUG_QUERY,
-    { variables: { slug: props.lessonSlug } }
-  )
+  const { data } = useGetLessonBySlugQuery({
+    variables: { slug: props.lessonSlug }
+  })
 
-  if (!data) {
+  if (!data || !data.lesson) {
     return <div className="flex-1"></div>
   }
   return (
@@ -71,21 +42,23 @@ export function Video(props: VideoProps) {
               {data.lesson.description}
             </p>
 
-            <div className="mt-6 flex items-center">
-              <img
-                className="w-16 h-16 rounded-full border-2 border-solid border-blue-500 object-cover"
-                src={data.lesson.teacher.avatarURL}
-                alt={data.lesson.teacher.name}
-              />
-              <div className="ml-[1.125rem]">
-                <p className="text-[1.5rem] text-gray-100 font-bold">
-                  {data.lesson.teacher.name}
-                </p>
-                <span className="text-[0.875rem] text-[#A8A8B3] leading-[1.6]">
-                  {data.lesson.teacher.bio}
-                </span>
+            {data.lesson.teacher && (
+              <div className="mt-6 flex items-center">
+                <img
+                  className="w-16 h-16 rounded-full border-2 border-solid border-blue-500 object-cover"
+                  src={data.lesson.teacher.avatarURL}
+                  alt={data.lesson.teacher.name}
+                />
+                <div className="ml-[1.125rem]">
+                  <p className="text-[1.5rem] text-gray-100 font-bold">
+                    {data.lesson.teacher.name}
+                  </p>
+                  <span className="text-[0.875rem] text-[#A8A8B3] leading-[1.6]">
+                    {data.lesson.teacher.bio}
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <div className="flex flex-col gap-4">
             <a

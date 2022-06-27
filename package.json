@@ -5,13 +5,19 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate": "graphql-codegen --require dotenv/config --config codegen.yaml dotenv_config_path=.env.local"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.5.1",
+    "@graphql-codegen/typescript-operations": "^2.4.2",
+    "@graphql-codegen/typescript-react-apollo": "^3.2.16",
     "@vime/core": "^5.3.1",
     "@vime/react": "^5.3.1",
     "date-fns": "^2.28.0",
+    "dotenv": "^16.0.1",
     "graphql": "^16.5.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.0.0",
