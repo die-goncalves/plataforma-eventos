@@ -10,13 +10,25 @@ body {
 
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
-    width: 0.375rem;
-    height: 0.375rem;
+    width: 0.5vw;
+    height: 0.5vw;
+    background-color: transparent;
   }
   .scrollbar::-webkit-scrollbar-thumb {
     background: #323238;
   }
-  .scrollbar::-webkit-scrollbar-track {
-    background: #09090A;
+}
+
+@media (max-width: 640px) {
+  .scrollbar::-webkit-scrollbar {
+    width: 2vw;
+    height: 2vw;
+  }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1024px){
+  .scrollbar::-webkit-scrollbar {
+    width: 1vw;
+    height: 1vw;
   }
 }
