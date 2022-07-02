@@ -1,0 +1,25 @@
+query GetChallengeByLessonSlug($slug: String) {
+  lesson(where: {slug: $slug}) {
+    challenge {
+      title
+      introduction {
+        raw
+      }
+      description {
+        raw
+      }
+      templateGithub
+      preparation {
+        raw
+      }
+      layout
+      applicationChanges {
+        raw
+      }
+      testSpecification {
+        raw
+      }
+      videoId
+    }
+  }
+}

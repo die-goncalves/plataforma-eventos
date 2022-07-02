@@ -10,6 +10,14 @@ module.exports = {
       sm: { min: '640px', max: '1024px' },
       lg: { min: '1024px', max: '1280px' }
     },
+    listStyleType: {
+      disc: 'disc',
+      circle: 'circle',
+      square: 'square',
+      decimal: 'decimal',
+      roman: 'upper-roman',
+      alpha: 'lower-alpha'
+    },
     extend: {
       colors: {
         green: {

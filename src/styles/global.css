@@ -8,6 +8,25 @@ body {
   @apply bg-gray-900 text-gray-100 font-roboto;
 }
 
+ul {
+  @apply list-disc;
+}
+ul ul {
+  @apply list-circle;
+}
+ul ul ul {
+  @apply list-square;
+}
+ol {
+  @apply list-decimal;
+}
+ol ol{
+  @apply list-roman;
+}
+ol ol ol{
+  @apply list-alpha;
+}
+
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
     width: 0.5vw;
@@ -16,6 +35,9 @@ body {
   }
   .scrollbar::-webkit-scrollbar-thumb {
     background: #323238;
+  }
+  .scrollbar-code-border-radius::-webkit-scrollbar-thumb {
+    border-radius: 0.25rem;
   }
 }
 

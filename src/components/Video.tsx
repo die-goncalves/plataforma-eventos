@@ -7,6 +7,7 @@ import {
   Lightning,
   Image
 } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 
 import '@vime/core/themes/default.css'
 
@@ -71,15 +72,15 @@ export function Video(props: VideoProps) {
                 COMUNIDADE NO DISCORD
               </span>
             </a>
-            <a
-              href="#"
+            <Link
+              to={`/platform/lesson/${props.lessonSlug}/challenge`}
               className="flex px-6 py-4 items-center justify-center text-blue-500 hover:text-gray-900 ring-[1px] ring-inset ring-blue-500 hover:bg-blue-500 rounded transition-all duration-200 ease-out"
             >
               <Lightning className="w-6 h-6" />
               <span className="ml-2.5 text-[0.875rem] font-bold">
                 ACESSE O DESAFIO
               </span>
-            </a>
+            </Link>
           </div>
         </div>
 

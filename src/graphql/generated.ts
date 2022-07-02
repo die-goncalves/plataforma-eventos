@@ -707,16 +707,21 @@ export type BatchPayload = {
 
 export type Challenge = Node & {
   __typename?: 'Challenge';
+  applicationChanges: RichText;
   /** The time the document was created */
   createdAt: Scalars['DateTime'];
   /** User that created this document */
   createdBy?: Maybe<User>;
+  description: RichText;
   /** Get the document in other stages */
   documentInStages: Array<Challenge>;
   /** List of Challenge versions */
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID'];
+  introduction: RichText;
+  layout: Scalars['String'];
+  preparation: RichText;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -724,11 +729,15 @@ export type Challenge = Node & {
   scheduledIn: Array<ScheduledOperation>;
   /** System stage field */
   stage: Stage;
+  templateGithub: Scalars['String'];
+  testSpecification: RichText;
+  title: Scalars['String'];
   /** The time the document was updated */
   updatedAt: Scalars['DateTime'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
   url: Scalars['String'];
+  videoId: Scalars['String'];
 };
 
 
@@ -789,10 +798,19 @@ export type ChallengeConnection = {
 };
 
 export type ChallengeCreateInput = {
+  applicationChanges: Scalars['RichTextAST'];
   cl4e8k4ev0anm01xu7gc87fn9?: InputMaybe<LessonCreateManyInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['RichTextAST'];
+  introduction: Scalars['RichTextAST'];
+  layout: Scalars['String'];
+  preparation: Scalars['RichTextAST'];
+  templateGithub: Scalars['String'];
+  testSpecification: Scalars['RichTextAST'];
+  title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
+  videoId: Scalars['String'];
 };
 
 export type ChallengeCreateManyInlineInput = {
@@ -863,6 +881,25 @@ export type ChallengeManyWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  layout?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  layout_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  layout_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  layout_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  layout_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  layout_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  layout_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  layout_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  layout_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  layout_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -882,6 +919,44 @@ export type ChallengeManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  templateGithub?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  templateGithub_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  templateGithub_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  templateGithub_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  templateGithub_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  templateGithub_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  templateGithub_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  templateGithub_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  templateGithub_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  templateGithub_starts_with?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  title_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -917,6 +992,25 @@ export type ChallengeManyWhereInput = {
   url_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   url_starts_with?: InputMaybe<Scalars['String']>;
+  videoId?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  videoId_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  videoId_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  videoId_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  videoId_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  videoId_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  videoId_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  videoId_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  videoId_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  videoId_starts_with?: InputMaybe<Scalars['String']>;
 };
 
 export enum ChallengeOrderByInput {
@@ -924,17 +1018,34 @@ export enum ChallengeOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
+  LayoutAsc = 'layout_ASC',
+  LayoutDesc = 'layout_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
+  TemplateGithubAsc = 'templateGithub_ASC',
+  TemplateGithubDesc = 'templateGithub_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   UrlAsc = 'url_ASC',
-  UrlDesc = 'url_DESC'
+  UrlDesc = 'url_DESC',
+  VideoIdAsc = 'videoId_ASC',
+  VideoIdDesc = 'videoId_DESC'
 }
 
 export type ChallengeUpdateInput = {
+  applicationChanges?: InputMaybe<Scalars['RichTextAST']>;
   cl4e8k4ev0anm01xu7gc87fn9?: InputMaybe<LessonUpdateManyInlineInput>;
+  description?: InputMaybe<Scalars['RichTextAST']>;
+  introduction?: InputMaybe<Scalars['RichTextAST']>;
+  layout?: InputMaybe<Scalars['String']>;
+  preparation?: InputMaybe<Scalars['RichTextAST']>;
+  templateGithub?: InputMaybe<Scalars['String']>;
+  testSpecification?: InputMaybe<Scalars['RichTextAST']>;
+  title?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
+  videoId?: InputMaybe<Scalars['String']>;
 };
 
 export type ChallengeUpdateManyInlineInput = {
@@ -955,7 +1066,14 @@ export type ChallengeUpdateManyInlineInput = {
 };
 
 export type ChallengeUpdateManyInput = {
+  applicationChanges?: InputMaybe<Scalars['RichTextAST']>;
+  description?: InputMaybe<Scalars['RichTextAST']>;
+  introduction?: InputMaybe<Scalars['RichTextAST']>;
+  preparation?: InputMaybe<Scalars['RichTextAST']>;
+  testSpecification?: InputMaybe<Scalars['RichTextAST']>;
+  title?: InputMaybe<Scalars['String']>;
   url?: InputMaybe<Scalars['String']>;
+  videoId?: InputMaybe<Scalars['String']>;
 };
 
 export type ChallengeUpdateManyWithNestedWhereInput = {
@@ -1046,6 +1164,25 @@ export type ChallengeWhereInput = {
   id_not_starts_with?: InputMaybe<Scalars['ID']>;
   /** All values starting with the given string. */
   id_starts_with?: InputMaybe<Scalars['ID']>;
+  layout?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  layout_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  layout_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  layout_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  layout_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  layout_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  layout_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  layout_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  layout_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  layout_starts_with?: InputMaybe<Scalars['String']>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -1065,6 +1202,44 @@ export type ChallengeWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  templateGithub?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  templateGithub_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  templateGithub_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  templateGithub_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  templateGithub_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  templateGithub_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  templateGithub_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  templateGithub_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  templateGithub_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  templateGithub_starts_with?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  title_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -1100,11 +1275,32 @@ export type ChallengeWhereInput = {
   url_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   url_starts_with?: InputMaybe<Scalars['String']>;
+  videoId?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  videoId_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  videoId_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  videoId_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  videoId_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  videoId_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  videoId_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  videoId_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  videoId_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  videoId_starts_with?: InputMaybe<Scalars['String']>;
 };
 
 /** References Challenge record uniquely */
 export type ChallengeWhereUniqueInput = {
   id?: InputMaybe<Scalars['ID']>;
+  layout?: InputMaybe<Scalars['String']>;
+  templateGithub?: InputMaybe<Scalars['String']>;
 };
 
 /** Representing a color value comprising of HEX, RGBA and css color values */
@@ -5576,6 +5772,13 @@ export type CreateSubscriberMutationVariables = Exact<{
 
 export type CreateSubscriberMutation = { __typename?: 'Mutation', createSubscriber?: { __typename?: 'Subscriber', id: string } | null };
 
+export type GetChallengeByLessonSlugQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetChallengeByLessonSlugQuery = { __typename?: 'Query', lesson?: { __typename?: 'Lesson', challenge?: { __typename?: 'Challenge', title: string, templateGithub: string, layout: string, videoId: string, introduction: { __typename?: 'RichText', raw: any }, description: { __typename?: 'RichText', raw: any }, preparation: { __typename?: 'RichText', raw: any }, applicationChanges: { __typename?: 'RichText', raw: any }, testSpecification: { __typename?: 'RichText', raw: any } } | null } | null };
+
 export type GetLessonBySlugQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
 }>;
@@ -5623,6 +5826,61 @@ export function useCreateSubscriberMutation(baseOptions?: Apollo.MutationHookOpt
 export type CreateSubscriberMutationHookResult = ReturnType<typeof useCreateSubscriberMutation>;
 export type CreateSubscriberMutationResult = Apollo.MutationResult<CreateSubscriberMutation>;
 export type CreateSubscriberMutationOptions = Apollo.BaseMutationOptions<CreateSubscriberMutation, CreateSubscriberMutationVariables>;
+export const GetChallengeByLessonSlugDocument = gql`
+    query GetChallengeByLessonSlug($slug: String) {
+  lesson(where: {slug: $slug}) {
+    challenge {
+      title
+      introduction {
+        raw
+      }
+      description {
+        raw
+      }
+      templateGithub
+      preparation {
+        raw
+      }
+      layout
+      applicationChanges {
+        raw
+      }
+      testSpecification {
+        raw
+      }
+      videoId
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetChallengeByLessonSlugQuery__
+ *
+ * To run a query within a React component, call `useGetChallengeByLessonSlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetChallengeByLessonSlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetChallengeByLessonSlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useGetChallengeByLessonSlugQuery(baseOptions?: Apollo.QueryHookOptions<GetChallengeByLessonSlugQuery, GetChallengeByLessonSlugQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetChallengeByLessonSlugQuery, GetChallengeByLessonSlugQueryVariables>(GetChallengeByLessonSlugDocument, options);
+      }
+export function useGetChallengeByLessonSlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetChallengeByLessonSlugQuery, GetChallengeByLessonSlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetChallengeByLessonSlugQuery, GetChallengeByLessonSlugQueryVariables>(GetChallengeByLessonSlugDocument, options);
+        }
+export type GetChallengeByLessonSlugQueryHookResult = ReturnType<typeof useGetChallengeByLessonSlugQuery>;
+export type GetChallengeByLessonSlugLazyQueryHookResult = ReturnType<typeof useGetChallengeByLessonSlugLazyQuery>;
+export type GetChallengeByLessonSlugQueryResult = Apollo.QueryResult<GetChallengeByLessonSlugQuery, GetChallengeByLessonSlugQueryVariables>;
 export const GetLessonBySlugDocument = gql`
     query GetLessonBySlug($slug: String) {
   lesson(where: {slug: $slug}) {
