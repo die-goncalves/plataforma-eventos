@@ -19,6 +19,19 @@ module.exports = {
       alpha: 'lower-alpha'
     },
     extend: {
+      keyframes: {
+        'bar-progress': {
+          from: {
+            left: '-100px'
+          },
+          to: {
+            left: '100%'
+          }
+        }
+      },
+      animation: {
+        'infinite-loading': 'bar-progress 1s linear infinite'
+      },
       colors: {
         green: {
           300: '#00B37E',

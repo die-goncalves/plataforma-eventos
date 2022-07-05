@@ -5,6 +5,7 @@ import { FormatRichText } from '../components/FormatRichText'
 import { useGetChallengeByLessonSlugQuery } from '../graphql/generated'
 import Logo from '../assets/logo.svg'
 import { FormEvent, useState } from 'react'
+import { Loading } from '../components/Loading'
 
 export function Challenge() {
   const navigate = useNavigate()
@@ -23,7 +24,7 @@ export function Challenge() {
   }
 
   if (loading) {
-    return <div>loading....</div>
+    return <Loading />
   }
 
   if (!data?.lesson?.challenge) {

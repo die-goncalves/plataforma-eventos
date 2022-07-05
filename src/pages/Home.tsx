@@ -8,6 +8,7 @@ import { useAuth } from '../hooks/auth'
 import { useNavigate } from 'react-router-dom'
 import { SignUp } from '../components/Sign/SignUp'
 import { SignIn } from '../components/Sign/SignIn'
+import { Loading } from '../components/Loading'
 
 export function Home() {
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ export function Home() {
   }, [isAuthenticated])
 
   if (isLoadingApplication) {
-    return <div>loading...</div>
+    return <Loading />
   }
 
   if (!(isLoadingApplication === false && !isAuthenticated)) {
