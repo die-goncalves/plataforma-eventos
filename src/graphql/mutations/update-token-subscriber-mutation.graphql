@@ -1,0 +1,6 @@
+mutation UpdateTokenSubscriber($token: String!, $email: String!) {
+  updateSubscriber(data: {token: $token}, where: {email: $email}) {
+    name
+    email
+  }
+}
