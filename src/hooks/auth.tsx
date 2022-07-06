@@ -5,7 +5,8 @@ import {
   useEffect,
   useState
 } from 'react'
-import { verifyJWT } from '../utils/handleJWT'
+import { verifyJWT } from '../utils/handlejwt'
+import Cookies from 'js-cookie'
 
 type Subscriber = {
   name: string
@@ -47,7 +48,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function verifyAuth() {
     try {
       setIsLoadingApplication(true)
-      const jwt = sessionStorage.getItem('@IgniteLabPlatformByDie:token')
+      const jwt = Cookies.get('IgniteLabPlatformByDie_token')
       if (!jwt) throw new Error('Missing authentication token')
 
       const payload = await verifyJWT({ jwt })

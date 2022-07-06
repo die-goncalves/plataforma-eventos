@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react'
 import { useCreateSubscriberMutation } from '../../graphql/generated'
 import { useAuth } from '../../hooks/auth'
-import { createJWT } from '../../utils/handleJWT'
+import { createJWT } from '../../utils/handlejwt'
+import Cookies from 'js-cookie'
 
 type SignUpProps = {
   option: React.Dispatch<React.SetStateAction<boolean>>
@@ -26,7 +27,7 @@ export function SignUp({ option }: SignUpProps) {
         variables: { name: inputs.name, email: inputs.email, token }
       })
 
-      sessionStorage.setItem('@IgniteLabPlatformByDie:token', token)
+      Cookies.set('IgniteLabPlatformByDie_token', token, { expires: 365 })
       setIsAuthenticated(true)
     } catch (error) {
       console.log({ error })

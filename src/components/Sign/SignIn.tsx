@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react'
 import { useUpdateTokenSubscriberMutation } from '../../graphql/generated'
 import { useAuth } from '../../hooks/auth'
-import { createJWT } from '../../utils/handleJWT'
+import { createJWT } from '../../utils/handlejwt'
+import Cookies from 'js-cookie'
 
 type SignInProps = {
   option: React.Dispatch<React.SetStateAction<boolean>>
@@ -27,7 +28,7 @@ export function SignIn({ option }: SignInProps) {
       })
 
       if (data?.updateSubscriber?.email) {
-        sessionStorage.setItem('@IgniteLabPlatformByDie:token', token)
+        Cookies.set('IgniteLabPlatformByDie_token', token, { expires: 365 })
         setIsAuthenticated(true)
       }
     } catch (error) {
