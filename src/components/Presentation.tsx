@@ -2,8 +2,8 @@ import { HandWaving } from 'phosphor-react'
 
 export function Presentation() {
   return (
-    <div className="flex bg-black w-full h-full ">
-      <div className="mx-auto flex flex-col gap-8 items-center justify-center max-w-[400px] text-center">
+    <div className="flex w-full h-full ">
+      <div className="mx-auto flex flex-1 flex-col gap-8 items-center justify-center max-w-[400px] text-center">
         <div className="flex gap-2 items-center">
           <HandWaving className="flex-none w-10 h-10 animate-waving-hand text-green-300" />
           <p className="text-[1.5rem] font-bold">Bem vindo ao evento!</p>
