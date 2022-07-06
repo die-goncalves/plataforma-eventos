@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { Presentation } from '../components/Presentation'
 import { Sidebar } from '../components/Sidebar'
 import { Video } from '../components/Video'
 
@@ -37,11 +38,7 @@ export function Platform() {
       <main className="relative flex flex-1">
         <div className="relative z-0 flex flex-1 flex-col">
           {!activeNavLessons &&
-            (slug ? (
-              <Video lessonSlug={slug} />
-            ) : (
-              <div className="bg-black w-full h-full"></div>
-            ))}
+            (slug ? <Video lessonSlug={slug} /> : <Presentation />)}
 
           <Footer />
         </div>
