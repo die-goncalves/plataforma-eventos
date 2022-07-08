@@ -49,16 +49,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
     try {
       setIsLoadingApplication(true)
       const jwt = Cookies.get('IgniteLabPlatformByDie_token')
-      if (!jwt) throw new Error('Missing authentication token')
 
-      const payload = await verifyJWT({ jwt })
+      if (jwt) {
+        const payload = await verifyJWT({ jwt })
 
-      setIsAuthenticated(true)
+        setIsAuthenticated(true)
+        setIsLoadingApplication(false)
+        return payload
+      }
       setIsLoadingApplication(false)
-      return payload
+      return
     } catch (error) {
-      setIsLoadingApplication(false)
-      console.log(error)
+      console.log({ error })
     }
   }
 

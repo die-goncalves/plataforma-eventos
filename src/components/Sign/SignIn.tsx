@@ -3,6 +3,23 @@ import { useUpdateTokenSubscriberMutation } from '../../graphql/generated'
 import { useAuth } from '../../hooks/auth'
 import { createJWT } from '../../utils/handlejwt'
 import Cookies from 'js-cookie'
+import { toast } from 'react-toastify'
+import * as yup from 'yup'
+import { setLocale } from 'yup'
+import { ApolloError } from '@apollo/client'
+import { graphQLErrors } from '../../utils/graphQLError'
+
+setLocale({
+  mixed: {
+    required: ({ path }) =>
+      `${path.charAt(0).toUpperCase() + path.slice(1)} obrigatório.`
+  }
+})
+
+const schema = yup.object().shape({
+  nome: yup.string().required(),
+  email: yup.string().email('Deve ser um email válido.').required()
+})
 
 type SignInProps = {
   option: React.Dispatch<React.SetStateAction<boolean>>
@@ -21,18 +38,33 @@ export function SignIn({ option }: SignInProps) {
     event.preventDefault()
 
     try {
-      const token = await createJWT({ name: inputs.name, email: inputs.email })
+      await schema.validate(
+        {
+          nome: inputs.name,
+          email: inputs.email
+        },
+        { abortEarly: false }
+      )
 
+      const token = await createJWT({ name: inputs.name, email: inputs.email })
       const { data } = await updateToken({
         variables: { email: inputs.email, token }
       })
 
       if (data?.updateSubscriber?.email) {
         Cookies.set('IgniteLabPlatformByDie_token', token, { expires: 365 })
+        toast.success('Bem vindo!')
+
         setIsAuthenticated(true)
+      } else {
+        toast.error('Não existe uma inscrição com este e-mail')
       }
     } catch (error) {
-      console.log({ error })
+      if (error instanceof yup.ValidationError) {
+        toast.error(error.errors.join('\r\n'))
+      } else if (error instanceof ApolloError) {
+        graphQLErrors(error)
+      } else console.log({ error })
     }
   }
 
