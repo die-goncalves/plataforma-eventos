@@ -36,7 +36,7 @@ export function Challenge() {
       className="h-screen w-screen scrollbar"
       style={{ scrollbarGutter: 'stable', overflow: 'auto' }}
     >
-      <div className="flex flex-col max-w-[1440px] mx-auto items-center">
+      <div className="flex flex-col max-w-[1440px] mx-auto items-center px-2">
         <header className="relative flex w-full max-w-[55.5rem] justify-center items-center py-5 mb-5 bg-gray-900 shadow-[inset_0_-1px_0_0_#29292E] max-640px:px-6 max-640px:py-4 sm:px-6 sm:py-4 lg:px-8">
           <LinkRouter
             to={`/platform/lesson/${slug}`}
@@ -96,7 +96,7 @@ export function Challenge() {
                   {data.lesson.challenge.templateGithub}
                 </p>
               </div>
-              <div className="flex w-[calc(50%-10rem)] h-full bg-green-700 max-640px:hidden">
+              <div className="flex w-[calc(50%-10rem)] bg-green-700 max-640px:hidden">
                 <GithubLogo className="w-10 h-10 text-gray-900 m-auto" />
               </div>
             </a>
@@ -131,7 +131,7 @@ export function Challenge() {
                   {data.lesson.challenge.layout}
                 </p>
               </div>
-              <div className="flex w-[calc(50%-10rem)] h-full bg-green-700 max-640px:hidden">
+              <div className="flex w-[calc(50%-10rem)] bg-green-700 max-640px:hidden">
                 <FigmaLogo className="w-10 h-10 text-gray-900 m-auto" />
               </div>
             </a>
