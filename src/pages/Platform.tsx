@@ -26,12 +26,15 @@ export function Platform() {
         />
         <main className="relative flex flex-1">
           <div className="relative z-0 flex flex-1 flex-col">
-            {!activeNavLessons &&
-              (slug ? <Video lessonSlug={slug} /> : <Presentation />)}
-
-            <Footer />
+            {slug ? (
+              <>
+                <Video lessonSlug={slug} />
+                <Footer />
+              </>
+            ) : (
+              <Presentation />
+            )}
           </div>
-
           <Sidebar activeNavLessons={activeNavLessons} />
         </main>
       </div>
