@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="309.23868"
+   height="27.55444"
+   viewBox="0 0 322.656 28.749978"
+   fill="none"
+   version="1.1"
+   id="svg36"
+   sodipodi:docname="logo-app.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs40">
+    <rect
+       x="-16.403032"
+       y="-20.777172"
+       width="388.20508"
+       height="86.389297"
+       id="rect897" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview38"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.8289302"
+     inkscape:cx="164.57708"
+     inkscape:cy="62.33152"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg36"
+     showborder="true" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:40px;line-height:1.25;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift Condensed';fill:#000000;fill-opacity:1;stroke:none"
+     x="0"
+     y="28.398438"
+     id="text953"><tspan
+       sodipodi:role="line"
+       id="tspan951"
+       x="0"
+       y="28.398438"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-family:Bahnschrift;-inkscape-font-specification:'Bahnschrift Condensed'">  Plataforma de eventos  </tspan></text>
+  <text
+     xml:space="preserve"
+     id="text895"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect897);display:inline;fill:#000000;fill-opacity:1;stroke:none"
+     transform="translate(1.953125)" />
+</svg>
