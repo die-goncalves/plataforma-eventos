@@ -130,7 +130,8 @@ Listagem das principais tecnologias e porque foram utilizadas:
         - Em `Content API` do token crie as seguintes permissões.
         <img src="assets\graphcms-permissions-permanent-auth-tokens.png" alt="Auth0 - criar usuário" />
 <br />
-4. Execute a aplicação
+
+4. Execute a aplicação:
     ```sh
     $ yarn dev #ou $ npm run dev
     # A aplicação inciará na porta 3000 - acesse <http://localhost:3000>
