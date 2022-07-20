@@ -138,7 +138,7 @@ Listagem das principais tecnologias e porque foram utilizadas:
     ```
 
 ## Funcionalidades
-- [X] Criar o esquema de banco de dados no GraphCMS com as tabelas ...
+- [X] Criar o esquema de banco de dados no GraphCMS.
 - [X] Criar um serviço de autenticação utilizando a tabela Subscriber no GraphCMS.
   - Apenas usuários autenticados podem acessar a rota `http://localhost:3000/plataform/` e suas rotas internas;
   - Usuários já autenticados são automaticamente redirecionados para a plataforma ao acessar `http://localhost:3000/`;
